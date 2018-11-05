@@ -55,38 +55,38 @@ class TwoArgOperations(Enum):
 
 
 priorities = {
-    Bracket.OPENED_BRACKET: float("inf"),
-    Bracket.CLOSED_BRACKET: float("inf"),
+    Bracket.OPENED_BRACKET.value: float("inf"),
+    Bracket.CLOSED_BRACKET.value: float("inf"),
 
-    Constants.E: 4,
-    OneArgOperations.ABS: 4,
-    OneArgOperations.SIN: 4,
-    OneArgOperations.COS: 4,
-    OneArgOperations.TAN: 4,
-    OneArgOperations.ASIN: 4,
-    OneArgOperations.ACOS: 4,
-    OneArgOperations.ATAN: 4,
+    Constants.E.value: 4,
+    OneArgOperations.ABS.value: 4,
+    OneArgOperations.SIN.value: 4,
+    OneArgOperations.COS.value: 4,
+    OneArgOperations.TAN.value: 4,
+    OneArgOperations.ASIN.value: 4,
+    OneArgOperations.ACOS.value: 4,
+    OneArgOperations.ATAN.value: 4,
 
-    OneArgOperations.SQRT: 3,
-    OneArgOperations.LOG: 3,
-    OneArgOperations.LOG10: 3,
-    ArithmeticOperations.POW: 3,
-    TwoArgOperations.POW: 3,
+    OneArgOperations.SQRT.value: 3,
+    OneArgOperations.LOG.value: 3,
+    OneArgOperations.LOG10.value: 3,
+    ArithmeticOperations.POW.value: 3,
+    TwoArgOperations.POW.value: 3,
 
-    ArithmeticOperations.MUL: 2,
-    ArithmeticOperations.DIV: 2,
-    ArithmeticOperations.MOD: 2,
-    ArithmeticOperations.DDIV: 2,
+    ArithmeticOperations.MUL.value: 2,
+    ArithmeticOperations.DIV.value: 2,
+    ArithmeticOperations.MOD.value: 2,
+    ArithmeticOperations.DDIV.value: 2,
 
-    ArithmeticOperations.PLUS: 1,
-    ArithmeticOperations.MINUS: 1,
+    ArithmeticOperations.PLUS.value: 1,
+    ArithmeticOperations.MINUS.value: 1,
 
-    ComparisonOperations.LESS: 0,
-    ComparisonOperations.MORE: 0,
-    ComparisonOperations.EQUAL: 0,
-    ComparisonOperations.INEQUAL: 0,
-    ComparisonOperations.LESS_EQUAL: 0,
-    ComparisonOperations.MORE_EQUAL: 0
+    ComparisonOperations.LESS.value: 0,
+    ComparisonOperations.MORE.value: 0,
+    ComparisonOperations.EQUAL.value: 0,
+    ComparisonOperations.INEQUAL.value: 0,
+    ComparisonOperations.LESS_EQUAL.value: 0,
+    ComparisonOperations.MORE_EQUAL.value: 0
 }
 
 operations = {
