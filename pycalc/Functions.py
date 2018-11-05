@@ -3,7 +3,7 @@ from enum import Enum
 
 
 def is_operator(operator):
-    return operator in priorities
+    return [k for k, v in priorities.items() if v.__contains__(operator)]
 
 
 class Bracket(Enum):
@@ -55,38 +55,16 @@ class TwoArgOperations(Enum):
 
 
 priorities = {
-    Bracket.OPENED_BRACKET.value: float("inf"),
-    Bracket.CLOSED_BRACKET.value: float("inf"),
-
-    Constants.E.value: 4,
-    OneArgOperations.ABS.value: 4,
-    OneArgOperations.SIN.value: 4,
-    OneArgOperations.COS.value: 4,
-    OneArgOperations.TAN.value: 4,
-    OneArgOperations.ASIN.value: 4,
-    OneArgOperations.ACOS.value: 4,
-    OneArgOperations.ATAN.value: 4,
-
-    OneArgOperations.SQRT.value: 3,
-    OneArgOperations.LOG.value: 3,
-    OneArgOperations.LOG10.value: 3,
-    ArithmeticOperations.POW.value: 3,
-    TwoArgOperations.POW.value: 3,
-
-    ArithmeticOperations.MUL.value: 2,
-    ArithmeticOperations.DIV.value: 2,
-    ArithmeticOperations.MOD.value: 2,
-    ArithmeticOperations.DDIV.value: 2,
-
-    ArithmeticOperations.PLUS.value: 1,
-    ArithmeticOperations.MINUS.value: 1,
-
-    ComparisonOperations.LESS.value: 0,
-    ComparisonOperations.MORE.value: 0,
-    ComparisonOperations.EQUAL.value: 0,
-    ComparisonOperations.INEQUAL.value: 0,
-    ComparisonOperations.LESS_EQUAL.value: 0,
-    ComparisonOperations.MORE_EQUAL.value: 0
+    5: [Bracket.OPENED_BRACKET.value, Bracket.CLOSED_BRACKET.value],
+    4: [OneArgOperations.ATAN.value, OneArgOperations.ACOS.value, OneArgOperations.ASIN.value,
+        OneArgOperations.TAN.value, OneArgOperations.COS.value, OneArgOperations.SIN.value,
+        OneArgOperations.ABS.value, Constants.E.value],
+    3: [TwoArgOperations.POW.value, ArithmeticOperations.POW.value, OneArgOperations.LOG10.value,
+        OneArgOperations.LOG.value, OneArgOperations.SQRT.value],
+    2: [ArithmeticOperations.MUL.value, ArithmeticOperations.DIV.value,
+        ArithmeticOperations.MOD.value, ArithmeticOperations.DDIV.value],
+    1: [ArithmeticOperations.PLUS.value, ArithmeticOperations.MINUS.value],
+    0: [e.value for e in ComparisonOperations]
 }
 
 operations = {

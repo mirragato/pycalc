@@ -21,7 +21,9 @@ def formatter(expression):
                 operators.append(token)
             else:
                 if len(operators):
-                    if priorities[token] <= priorities[operators[-1]]:
+
+                    if [k for k, v in priorities.items() if v.__contains__(token)] <= \
+                            [k for k, v in priorities.items() if v.__contains__(operators[-1])]:
                         if Bracket.OPENED_BRACKET.value != operators[-1]:
                             tokens.append(operators.pop())
                 operators.append(token)

@@ -3,7 +3,7 @@ from enum import Enum
 
 
 def is_operator(operator):
-    return operator in priorities
+    return [k for k, v in priorities.items() if v.__contains__(operator)]
 
 
 class Bracket(Enum):
@@ -55,38 +55,16 @@ class TwoArgOperations(Enum):
 
 
 priorities = {
-    Bracket.OPENED_BRACKET: float("inf"),
-    Bracket.CLOSED_BRACKET: float("inf"),
-
-    Constants.E: 4,
-    OneArgOperations.ABS: 4,
-    OneArgOperations.SIN: 4,
-    OneArgOperations.COS: 4,
-    OneArgOperations.TAN: 4,
-    OneArgOperations.ASIN: 4,
-    OneArgOperations.ACOS: 4,
-    OneArgOperations.ATAN: 4,
-
-    OneArgOperations.SQRT: 3,
-    OneArgOperations.LOG: 3,
-    OneArgOperations.LOG10: 3,
-    ArithmeticOperations.POW: 3,
-    TwoArgOperations.POW: 3,
-
-    ArithmeticOperations.MUL: 2,
-    ArithmeticOperations.DIV: 2,
-    ArithmeticOperations.MOD: 2,
-    ArithmeticOperations.DDIV: 2,
-
-    ArithmeticOperations.PLUS: 1,
-    ArithmeticOperations.MINUS: 1,
-
-    ComparisonOperations.LESS: 0,
-    ComparisonOperations.MORE: 0,
-    ComparisonOperations.EQUAL: 0,
-    ComparisonOperations.INEQUAL: 0,
-    ComparisonOperations.LESS_EQUAL: 0,
-    ComparisonOperations.MORE_EQUAL: 0
+    5: [Bracket.OPENED_BRACKET.value, Bracket.CLOSED_BRACKET.value],
+    4: [OneArgOperations.ATAN.value, OneArgOperations.ACOS.value, OneArgOperations.ASIN.value,
+        OneArgOperations.TAN.value, OneArgOperations.COS.value, OneArgOperations.SIN.value,
+        OneArgOperations.ABS.value, Constants.E.value],
+    3: [TwoArgOperations.POW.value, ArithmeticOperations.POW.value, OneArgOperations.LOG10.value,
+        OneArgOperations.LOG.value, OneArgOperations.SQRT.value],
+    2: [ArithmeticOperations.MUL.value, ArithmeticOperations.DIV.value,
+        ArithmeticOperations.MOD.value, ArithmeticOperations.DDIV.value],
+    1: [ArithmeticOperations.PLUS.value, ArithmeticOperations.MINUS.value],
+    0: [e.value for e in ComparisonOperations]
 }
 
 operations = {
