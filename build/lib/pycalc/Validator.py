@@ -2,11 +2,8 @@ from pycalc.Functions import *
 
 
 def validate(string: str) -> str:
-    string = string.replace(" ", "")
+    #string = string.replace(" ", "")
     string = combine_operator(string)
-
-    string = string.replace('e', str(constants["e"]))
-    string = string.replace('pi', str(constants["pi"]))
 
     i = 0
     while i < len(string) - 1:

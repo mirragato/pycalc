@@ -5,9 +5,6 @@ def validate(string: str) -> str:
     string = string.replace(" ", "")
     string = combine_operator(string)
 
-    string = string.replace('e', str(constants["e"]))
-    string = string.replace('pi', str(constants["pi"]))
-
     i = 0
     while i < len(string) - 1:
         if (string[i].isnumeric() or string[i] == '.') and string[i + 1] == '(':
@@ -67,15 +64,14 @@ def combine_operator(string: str) -> str:
             return string
 
         if string[i] in ["-", "+"] and string[i + 1] in ["-", "+"]:
-            current = string[i]
-            if current == "-" and string[i + 1] == "-":
-                current = "+"
-            elif current == "-" or string[i + 1] == "-":
-                current = "-"
+            if string[i] == "-" and string[i + 1] == "-":
+                string[i] = "+"
+            elif string[i] == "-" or string[i + 1] == "-":
+                string[i] = "-"
             else:
                 return string
 
-            string = string[:i] + current + string[i + 2:]
+            string = string[:i] + string[i] + string[i + 2:]
             string = combine_operator(string)
 
     return string
