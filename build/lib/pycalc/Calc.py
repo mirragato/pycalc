@@ -27,14 +27,16 @@ def calc(expression):
                 res = operations[token](expression[right], expression[left])
             except ArithmeticError:
                 res = 0
-                expression.insert(i + 1, res)
+            expression.insert(i + 1, res)
             expression = expression[:right] + expression[i + 1:]
             length = len(expression)
             j = expression.index(res)
+
             i = j + 1
 
             if j > length:
                 break
+
             continue
         i += 1
 

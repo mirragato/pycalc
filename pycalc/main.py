@@ -13,7 +13,7 @@ def parse_args():
 
 def main():
     args = parse_args()
-    print("{} =".format(args.EXPRESSION), Calc.calculate(args.EXPRESSION))
+    print(Calc.calculate(args.EXPRESSION))
 
 
 if __name__ == "__main__":
